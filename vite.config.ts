@@ -5,6 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [
     remix({
+      ssr: true,
       ignoredRouteFiles: ["**/*.css"],
     }),
     tsconfigPaths(),
