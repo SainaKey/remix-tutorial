@@ -5,7 +5,13 @@ import invariant from "tiny-invariant";
 
 import { getContact , updateContact } from "../data";
 
+//actionを外部で定義してimportする
+import type {EditAction} from "../.server/actions/editacaction";
+import { editAction  } from "../.server/actions/editacaction";
 
+//actionに外部のactionを入れる
+export const action = editAction;
+/*
 export const action = async ({params,request,}:ActionFunctionArgs) => {
     invariant(params.contactId, "Missing contactId param");
     const formData = await request.formData();
@@ -13,6 +19,7 @@ export const action = async ({params,request,}:ActionFunctionArgs) => {
     await updateContact(params.contactId, updates);
     return redirect(`/contacts/${params.contactId}`);
 };
+ */
 
 export const loader = async ({
                                  params,
